@@ -22,7 +22,8 @@ public class LocalEchoServerRegistration
    public void start()
    {
       ServerBootstrap serverBootstrap = new ServerBootstrap(factory);
-      EchoServerHandler handler = new EchoServerHandler();
+      // EchoServerHandler handler = new EchoServerHandler();
+      Echo2ServerHandler handler = new Echo2ServerHandler();
       serverBootstrap.getPipeline().addLast("handler", handler);
 
       // Note that "myLocalServer" is the endpoint which was specified in web.xml.
