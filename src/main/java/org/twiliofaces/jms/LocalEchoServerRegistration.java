@@ -27,7 +27,8 @@ public class LocalEchoServerRegistration
       serverBootstrap.getPipeline().addLast("handler", handler);
 
       // Note that "myLocalServer" is the endpoint which was specified in web.xml.
-      serverChannel = serverBootstrap.bind(new LocalAddress("localhost"));
+      System.out.println("try to connect.. " + System.getenv("OPENSHIFT_JBOSSAS_IP"));
+      serverChannel = serverBootstrap.bind(new LocalAddress("0.0.0.0"));
    }
 
    @PreDestroy

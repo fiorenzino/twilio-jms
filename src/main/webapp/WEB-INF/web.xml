@@ -12,7 +12,7 @@
 			See LocalTransportRegister. -->
 		<init-param>
 			<param-name>endpoint</param-name>
-			<param-value>local:localhost</param-value>
+			<param-value>local:0.0.0.0</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

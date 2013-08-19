@@ -32,24 +32,14 @@ public class Echo2ServerHandler extends SimpleChannelUpstreamHandler
       // Send back the received message to the remote peer.
       ChannelBuffer buffer = (ChannelBuffer) e.getMessage();
       transferredBytes.addAndGet(buffer.readableBytes());
-
-      // e.getChannel().write(e.getMessage());
       StringBuilder strBuffer = new StringBuilder();
-
       while (buffer.readable())
       {
          strBuffer.append((char) buffer.readByte());
       }
-
-      String terms = strBuffer.toString();
-
-      System.out.println(terms);
-
-      ChannelBuffer channelNew = ChannelBuffers.copiedBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>  " +
-               "<Response> " +
-               "    <Sms>Hello World!</Sms>" +
-               "    <Redirect>http://api.twilio.com/sms/welcome</Redirect>" +
-               "</Response>" + "\n", Charset.defaultCharset());
+      System.out.println(SmsUtils.fromString(strBuffer.toString()));
+      ChannelBuffer channelNew = ChannelBuffers.copiedBuffer("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>  \n" +
+               "<Response></Response>" + "\n", Charset.defaultCharset());
       e.getChannel().write(channelNew);
    }
 

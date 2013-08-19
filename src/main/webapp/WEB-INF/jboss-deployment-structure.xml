@@ -3,6 +3,7 @@
 	<deployment>
 		<dependencies>
 			<module name="org.jboss.netty" />
+			<!-- <module name="deployment.twilio-sms-ra-0.0.1-SNAPSHOT.rar" /> -->
 		</dependencies>
 	</deployment>
 </jboss-deployment-structure>
